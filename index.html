@@ -293,7 +293,7 @@
     <div class="container">
       <div class="header">
         <h1>🎙️ صوت ← نص</h1>
-        <p>سجّل أو ارفع ملف صوتي وهو يحوّله لنص بالعربي</p>
+        <p>سجل يا عزيزي أو ارفع ملف صوتي وهو يحوّله لنص بالعربي</p>
       </div>
 
       <div class="recorder-card">
@@ -465,13 +465,12 @@
       async function transcribe(audioBlob, filename) {
         const formData = new FormData();
         formData.append("file", audioBlob, filename);
-        formData.append("model", "whisper-1");
+        formData.append("model", "gpt-4o-mini-transcribe");
         formData.append("language", "ar");
         formData.append(
           "prompt",
           "كلام مصري عامي بالعربي. مثال: إزيك، عامل إيه، يلا بينا، مش عارف، هو ده، طب ماشي، خلاص، إيه ده، والله.",
         );
-        formData.append("temperature", "0");
 
         try {
           const res = await fetch(API_URL, {
