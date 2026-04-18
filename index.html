@@ -469,8 +469,9 @@
         formData.append("language", "ar");
         formData.append(
           "prompt",
-          "اللهجة المصرية العامية، كلام بالعربي المصري اليومي",
+          "كلام مصري عامي بالعربي. مثال: إزيك، عامل إيه، يلا بينا، مش عارف، هو ده، طب ماشي، خلاص، إيه ده، والله.",
         );
+        formData.append("temperature", "0");
 
         try {
           const res = await fetch(API_URL, {
