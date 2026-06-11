@@ -465,7 +465,8 @@
       async function transcribe(audioBlob, filename) {
         const formData = new FormData();
         formData.append("file", audioBlob, filename);
-        formData.append("model", "gpt-4o-mini-transcribe");
+        //formData.append("model", "gpt-4o-mini-transcribe");
+        formData.append("model", "whisper-1");
         formData.append("language", "ar");
         formData.append(
           "prompt",
