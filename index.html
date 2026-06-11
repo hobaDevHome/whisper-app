@@ -293,7 +293,7 @@
     <div class="container">
       <div class="header">
         <h1>🎙️ صوت 2 ← نص</h1>
-        <p>whisper 1</p>
+        <p>groq + whisper turbo</p>
       </div>
 
       <div class="recorder-card">
@@ -359,7 +359,8 @@
       // غيّري السطر ده لو عندك domain مخصوص،
       // لو لأ اتركيه فاضي وهو هيبعت للـ /api/transcribe تلقائي
       // ======================================================
-      const API_URL = "/api/transcribe";
+      //const API_URL = "/api/transcribe";
+      const API_URL = "/api/groq-transcribe";
 
       let mediaRecorder = null;
       let audioChunks = [];
@@ -466,7 +467,8 @@
         const formData = new FormData();
         formData.append("file", audioBlob, filename);
         //formData.append("model", "gpt-4o-mini-transcribe");
-        formData.append("model", "whisper-1");
+        //formData.append("model", "whisper-1");
+        formData.append("model", "whisper-large-v3-turbo");
         formData.append("language", "ar");
         formData.append(
           "prompt",
