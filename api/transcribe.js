@@ -37,7 +37,16 @@ export default async function handler(req, res) {
       },
     );
 
-    const data = await response.json();
+    const text = await response.text();
+    console.log("RAW RESPONSE:", text);
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch (e) {
+      return res
+        .status(500)
+        .json({ error: "Response مش JSON: " + text.substring(0, 200) });
+    }
 
     if (!response.ok) {
       return res
